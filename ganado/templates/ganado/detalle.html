@@ -1,0 +1,27 @@
+{% extends 'ganado/base.html' %}
+
+{% block title %}Detalle del Ternero{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3>Arete: {{ ternero.numero_identificador }}</h3>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Raza:</strong> {{ ternero.raza.nombre }}</li>
+                    <li class="list-group-item"><strong>Peso:</strong> {{ ternero.peso_kg }} kg</li>
+                    <li class="list-group-item"><strong>Fecha Nacimiento:</strong> {{ ternero.fecha_nacimiento|date:"d/m/Y" }}</li>
+                    <li class="list-group-item"><strong>Precio Estimado:</strong> ${{ ternero.precio_estimado }}</li>
+                    <li class="list-group-item"><strong>Disponible:</strong> {% if ternero.disponible_venta %}Sí{% else %}No{% endif %}</li>
+                </ul>
+            </div>
+            <div class="card-footer text-end">
+                <a href="{% url 'catalogo' %}" class="btn btn-secondary">Volver al Catálogo</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

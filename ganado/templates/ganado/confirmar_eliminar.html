@@ -1,0 +1,25 @@
+{% extends 'ganado/base.html' %}
+
+{% block title %}Eliminar Ternero{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card border-danger shadow">
+            <div class="card-header bg-danger text-white">
+                <h3>Confirmar Eliminación</h3>
+            </div>
+            <div class="card-body">
+                <p class="fs-5">¿Estás seguro de que deseas eliminar el ternero <strong>{{ object.numero_identificador }}</strong> de la raza <strong>{{ object.raza.nombre }}</strong>?</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+                        <a href="{% url 'catalogo' %}" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
