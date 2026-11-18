@@ -1,9 +1,25 @@
 {% extends 'ganado/base.html' %}
+{% load static agro_formatos %}
 
 {% block title %}Catálogo de Terneros{% endblock %}
 
+{% block hero %}
+<section class="hero-agro">
+    <div class="container">
+        <img src="{% static 'img/logo.svg' %}" alt="Logo AgroGanadera" class="hero-logo mb-4">
+        <h1 class="display-3 fw-bold mb-3">AgroGanadera</h1>
+        <p class="lead mx-auto mb-4">
+            Sistema de gestión para la crianza y venta de ganado
+        </p>
+        <a href="#catalogo" class="btn btn-light btn-lg px-4 fw-semibold">
+            Explorar catálogo
+        </a>
+    </div>
+</section>
+{% endblock %}
+
 {% block content %}
-<h2 class="mb-4">Catálogo de Terneros</h2>
+<h2 class="mb-4" id="catalogo">Catálogo de Terneros</h2>
 <table class="table table-striped table-hover shadow-sm">
     <thead class="table-dark">
         <tr>
@@ -31,8 +47,8 @@
             </td>
             <td>{{ t.numero_identificador }}</td>
             <td>{{ t.raza.nombre }}</td>
-            <td>{{ t.peso_kg }} kg</td>
-            <td>${{ t.precio_estimado }}</td>
+            <td>{{ t.peso_kg|floatformat:2 }} kg</td>
+            <td>${{ t.precio_estimado|clp }}</td>
             <td>
                 {% if t.disponible_venta %}
                     <span class="badge bg-success">Sí</span>

@@ -1,4 +1,5 @@
 {% extends 'ganado/base.html' %}
+{% load agro_formatos %}
 
 {% block title %}Detalle del Ternero{% endblock %}
 
@@ -35,13 +36,13 @@
                                 <strong>Raza:</strong> <span>{{ ternero.raza.nombre }}</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between">
-                                <strong>Peso:</strong> <span>{{ ternero.peso_kg }} kg</span>
+                                <strong>Peso:</strong> <span>{{ ternero.peso_kg|floatformat:2 }} kg</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between">
                                 <strong>Fecha Nacimiento:</strong> <span>{{ ternero.fecha_nacimiento|date:"d/m/Y" }}</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between">
-                                <strong>Precio Estimado:</strong> <span>${{ ternero.precio_estimado }}</span>
+                                <strong>Precio Estimado:</strong> <span>${{ ternero.precio_estimado|clp }}</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between">
                                 <strong>Disponible:</strong>

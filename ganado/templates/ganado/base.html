@@ -38,6 +38,8 @@
         </div>
     </nav>
 
+    {% block hero %}{% endblock %}
+
     <main class="container mt-4">
         <!-- Mensajes de éxito/error enviados por las vistas (SuccessMessageMixin) -->
         {% if messages %}
