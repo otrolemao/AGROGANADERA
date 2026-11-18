@@ -10,7 +10,7 @@
                 <h3 class="mb-0">Registrar / Editar Ternero</h3>
             </div>
             <div class="card-body">
-                <form method="post" novalidate>
+                <form method="post" enctype="multipart/form-data" novalidate>
                     {% csrf_token %}
 
                     {% if form.non_field_errors %}

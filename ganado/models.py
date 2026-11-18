@@ -19,6 +19,7 @@ class Ternero(models.Model):
     disponible_venta = models.BooleanField(default=True, verbose_name="¿Disponible para Venta?")
     precio_estimado = models.IntegerField(verbose_name="Precio Estimado ($)")
     raza = models.ForeignKey(Raza, on_delete=models.CASCADE, related_name='terneros', verbose_name="Raza")
+    imagen = models.ImageField(upload_to='terneros/', blank=True, null=True, verbose_name="Fotografía")
 
     def __str__(self):
         return f"Arete {self.numero_identificador} - {self.raza.nombre}"

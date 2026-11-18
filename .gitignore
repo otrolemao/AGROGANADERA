@@ -15,6 +15,9 @@ db.sqlite3
 # Estaticos recolectados
 staticfiles/
 
+# Archivos subidos por los usuarios (fotografias de terneros)
+media/
+
 # Archivos del sistema
 .DS_Store
 Thumbs.db

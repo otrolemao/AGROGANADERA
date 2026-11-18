@@ -15,6 +15,7 @@ class TerneroForm(forms.ModelForm):
             'disponible_venta',
             'precio_estimado',
             'raza',
+            'imagen',
         ]
         widgets = {
             'numero_identificador': forms.TextInput(attrs={
@@ -42,6 +43,10 @@ class TerneroForm(forms.ModelForm):
             }),
             'raza': forms.Select(attrs={
                 'class': 'form-select',
+            }),
+            'imagen': forms.ClearableFileInput(attrs={
+                'class': 'form-control',
+                'accept': 'image/*',
             }),
         }
 
