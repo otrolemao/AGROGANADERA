@@ -49,8 +49,8 @@ La ForeignKey usa `on_delete=models.CASCADE` y `related_name='terneros'`.
 1. **Clonar el repositorio**
 
    ```bash
-   git clone https://github.com/otrolemao/AgroGanadera_Project.git
-   cd AgroGanadera_Project
+   git clone https://github.com/otrolemao/AGROGANADERA.git
+   cd AGROGANADERA
    ```
 
 2. **Crear y activar el entorno virtual**
@@ -116,7 +116,7 @@ INNER JOIN ganado_raza r ON t.raza_id = r.id;
 ## Estructura del proyecto
 
 ```
-AgroGanadera_Project/
+AGROGANADERA/
 ├── agroganadera_project/       Configuración (settings, urls, wsgi/asgi)
 │   └── __init__.py             Registro de PyMySQL como MySQLdb
 ├── ganado/                     Aplicación principal
