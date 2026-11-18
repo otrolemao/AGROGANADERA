@@ -8,6 +8,13 @@ __pycache__/
 *.pyc
 *.pyo
 
+# Base de datos local de desarrollo (el proyecto usa MySQL)
+db.sqlite3
+*.sqlite3
+
+# Estaticos recolectados
+staticfiles/
+
 # Archivos del sistema
 .DS_Store
 Thumbs.db
@@ -15,3 +22,6 @@ Thumbs.db
 # Editores
 .vscode/
 .idea/
+
+# Exportaciones personales
+deepseek_data-*.zip
