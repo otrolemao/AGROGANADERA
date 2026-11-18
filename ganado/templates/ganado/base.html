@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,18 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgroGanadera - {% block title %}Inicio{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="icon" type="image/svg+xml" href="{% static 'img/logo.svg' %}">
 </head>
-<body class="bg-light">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'catalogo' %}">🐄 AgroGanadera</a>
+            <a class="navbar-brand" href="{% url 'catalogo' %}">
+                <img src="{% static 'img/logo.svg' %}" alt="Logo AgroGanadera" class="brand-logo">
+                AgroGanadera
+            </a>
             <div class="navbar-nav ms-auto align-items-center">
                 <a class="nav-link" href="{% url 'catalogo' %}">Catálogo</a>
-                
+
                 {% if user.is_authenticated %}
                     <a class="nav-link" href="{% url 'crear' %}">+ Nuevo Ternero</a>
+                    {% if user.is_staff %}
+                        <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+                    {% endif %}
                     <span class="navbar-text text-white me-3 ms-2">
-                        <i class="bi bi-person-circle"></i> {{ user.username }}
+                        {{ user.username }}
                     </span>
                     <form action="{% url 'logout' %}" method="post" class="d-inline">
                         {% csrf_token %}
@@ -28,20 +37,25 @@
             </div>
         </div>
     </nav>
-    <div class="container mt-4">
-        <!-- Bloque para mostrar mensajes de éxito/error -->
+
+    <main class="container mt-4">
+        <!-- Mensajes de éxito/error enviados por las vistas (SuccessMessageMixin) -->
         {% if messages %}
             {% for message in messages %}
                 <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
                     {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
                 </div>
             {% endfor %}
         {% endif %}
 
         {% block content %}
         {% endblock %}
-    </div>
+    </main>
+
+    <footer class="container pie-agro">
+        AgroGanadera · Sistema de gestión de ganado · Programación Back End (TI3041)
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
