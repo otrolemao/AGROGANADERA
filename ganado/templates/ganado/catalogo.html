@@ -4,8 +4,8 @@
 {% block title %}Catálogo de Terneros{% endblock %}
 
 {% block hero %}
-<section class="hero-agro">
-    <div class="container">
+<section class="hero-agro" id="hero-animado">
+    <div class="container position-relative" style="z-index: 2;">
         <img src="{% static 'img/logo.svg' %}" alt="Logo AgroGanadera" class="hero-logo mb-4">
         <h1 class="display-3 fw-bold mb-3">AgroGanadera</h1>
         <p class="lead mx-auto mb-4">
@@ -16,6 +16,30 @@
         </a>
     </div>
 </section>
+
+<!-- Script para el fondo animado con GIFs -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // AQUÍ PUEDES CAMBIAR LOS ENLACES POR LOS QUE TÚ QUIERAS
+        const gifs = [
+            'https://media.giphy.com/media/3o7TKuDI8g4Xj0Y0aQ/giphy.gif',
+            'https://media.giphy.com/media/l0HlvtIPzPdt2usKs/giphy.gif',
+            'https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif'
+        ];
+        
+        const hero = document.getElementById('hero-animado');
+        let index = 0;
+
+        function cambiarFondo() {
+            hero.style.backgroundImage = `url('${gifs[index]}')`;
+            index = (index + 1) % gifs.length;
+        }
+
+        // Cambia el fondo inmediatamente y luego cada 5 segundos
+        cambiarFondo();
+        setInterval(cambiarFondo, 5000);
+    });
+</script>
 {% endblock %}
 
 {% block content %}
