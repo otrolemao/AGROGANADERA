@@ -135,6 +135,13 @@ AGROGANADERA/
 └── manage.py
 ```
 
+## Características Adicionales
+
+- **Imágenes de terneros:** Cada ternero puede tener una fotografía que se muestra en el catálogo y en la ficha de detalle.
+- **Formato de moneda CLP:** Los precios se muestran con puntos de miles (ej: $450.000) gracias a un filtro de plantilla personalizado.
+- **Validación de formulario:** El campo de precio acepta tanto "450000" como "450.000", y el peso acepta coma decimal ("120,50").
+- **Header animado:** La página principal tiene un fondo dinámico con GIFs que cambian cada 5 segundos.
+
 ## Autor
 
 Jorge Martínez — [@otrolemao](https://github.com/otrolemao)
